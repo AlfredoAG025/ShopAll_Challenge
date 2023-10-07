@@ -9,21 +9,16 @@ import javax.persistence.*;
 
 @Entity
 @Table
-
 @Data
-@Setter
 @Getter
-public class Usuario {
+@Setter
+public class Vendedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long usuario_id;
-    private String nombre_usuario;
-    private String email;
-    private String contrasena;
-    private String tipo;
+    private Long vendedor_id;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "usuario")
-    private Vendedor vendedor;
-
+    @OneToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 }
