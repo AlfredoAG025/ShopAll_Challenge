@@ -17,7 +17,7 @@ public class UserController {
         this.service = service;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public GenericResponse getUsers(){
         return this.service.getUsers();
     }
