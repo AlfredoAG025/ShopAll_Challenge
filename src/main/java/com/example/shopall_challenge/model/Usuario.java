@@ -22,8 +22,4 @@ public class Usuario {
     private String contrasena;
     private String tipo;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "usuario")
-    private Vendedor vendedor;
-
 }
