@@ -1,7 +1,7 @@
 package com.example.shopall_challenge.controller;
 
 import com.example.shopall_challenge.domain.GenericResponse;
-import com.example.shopall_challenge.model.Inventory;
+import com.example.shopall_challenge.model.Inventario;
 import com.example.shopall_challenge.service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +28,7 @@ public class InventoryController {
 
 
     @PostMapping("/add")
-    public GenericResponse addInventory(@RequestBody Inventory body){
+    public GenericResponse addInventory(@RequestBody Inventario body){
         return this.service.addInventory(body);
     }
 
@@ -38,7 +38,7 @@ public class InventoryController {
     }
 
     @PutMapping("/update/{inventory_id}")
-    public GenericResponse updateInventory(@PathVariable("inventory_id") Long inventory_id, @RequestBody Inventory body){
+    public GenericResponse updateInventory(@PathVariable("inventory_id") Long inventory_id, @RequestBody Inventario body){
         return this.service.updateInventory(inventory_id, body);
     }
 }

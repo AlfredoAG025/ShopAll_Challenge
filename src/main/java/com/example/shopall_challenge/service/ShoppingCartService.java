@@ -1,7 +1,7 @@
 package com.example.shopall_challenge.service;
 
 import com.example.shopall_challenge.domain.GenericResponse;
-import com.example.shopall_challenge.model.ShoppingCart;
+import com.example.shopall_challenge.model.Carrito;
 import com.example.shopall_challenge.repository.ShoppingCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,15 +22,15 @@ public class ShoppingCartService {
     }
 
     public GenericResponse getShoppingCart(){
-        List<ShoppingCart> shoppingCarts = this.repository.findAll();
+        List<Carrito> shoppingCarts = this.repository.findAll();
         GenericResponse response =  new GenericResponse(200, "Correct", shoppingCarts);
         return response;
     }
 
     public GenericResponse getShoppingCartById(@PathVariable Long carrito_id){
-        List<ShoppingCart> shoppingCarts = new ArrayList<>();
-        ShoppingCart shoppingCart;
-        Optional<ShoppingCart> carrito_opt = repository.findById(carrito_id);
+        List<Carrito> shoppingCarts = new ArrayList<>();
+        Carrito shoppingCart;
+        Optional<Carrito> carrito_opt = repository.findById(carrito_id);
         GenericResponse response = null;
 
         if (carrito_opt.isPresent()){
@@ -44,10 +44,10 @@ public class ShoppingCartService {
         return response;
     }
 
-    public GenericResponse updateShoppingCart(@PathVariable Long carrito_id, @RequestBody ShoppingCart body){
-        List<ShoppingCart> shoppingCarts = new ArrayList<>();
-        ShoppingCart shoppingCart;
-        Optional<ShoppingCart> user_opt = repository.findById(carrito_id);
+    public GenericResponse updateShoppingCart(@PathVariable Long carrito_id, @RequestBody Carrito body){
+        List<Carrito> shoppingCarts = new ArrayList<>();
+        Carrito shoppingCart;
+        Optional<Carrito> user_opt = repository.findById(carrito_id);
         GenericResponse response = null;
 
         if (user_opt.isPresent()){
@@ -62,8 +62,8 @@ public class ShoppingCartService {
         return response;
     }
 
-    public GenericResponse addShoppingCart(@RequestBody ShoppingCart body){
-        List<ShoppingCart> shoppingCarts = new ArrayList<>();
+    public GenericResponse addShoppingCart(@RequestBody Carrito body){
+        List<Carrito> shoppingCarts = new ArrayList<>();
         shoppingCarts.add(body);
         GenericResponse response;
         try{
@@ -76,9 +76,9 @@ public class ShoppingCartService {
     }
 
     public GenericResponse deleteShoppingCart(@PathVariable Long carrito_id){
-        List<ShoppingCart> shoppingCarts = new ArrayList<>();
-        ShoppingCart shoppingCart;
-        Optional<ShoppingCart> user_opt = repository.findById(carrito_id);
+        List<Carrito> shoppingCarts = new ArrayList<>();
+        Carrito shoppingCart;
+        Optional<Carrito> user_opt = repository.findById(carrito_id);
         GenericResponse response = null;
 
         if (user_opt.isPresent()){

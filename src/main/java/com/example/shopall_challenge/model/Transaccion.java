@@ -5,25 +5,26 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.time.LocalDate;
 
 @Entity
 @Table
 @Data
 @Getter
 @Setter
-public class ShoppingCart {
+public class Transaccion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long carrito_id;
-    private int cantidad;
+    private Long transaccion_id;
+    private LocalDate fecha;
+    private Float monto_total;
+    private String direccion_envio;
+    private String informacion_pago;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
     @ManyToOne
-    @JoinColumn(name = "producto_id")
-    private Producto producto;
-    /*@OneToMany(targetEntity = Transaction.class,fetch = FetchType.LAZY,mappedBy = "transaccion")
-    private List<Transaction> shoppingCarts;*/
+    @JoinColumn(name = "carrito_id")
+    private Carrito shoppingCart;
 }

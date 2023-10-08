@@ -1,7 +1,7 @@
 package com.example.shopall_challenge.controller;
 
 import com.example.shopall_challenge.domain.GenericResponse;
-import com.example.shopall_challenge.model.Transaction;
+import com.example.shopall_challenge.model.Transaccion;
 import com.example.shopall_challenge.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +28,7 @@ public class TransactionController {
 
 
     @PostMapping("/add")
-    public GenericResponse addTransaction(@RequestBody Transaction body){
+    public GenericResponse addTransaction(@RequestBody Transaccion body){
         return this.service.addTransaction(body);
     }
 
@@ -38,7 +38,7 @@ public class TransactionController {
     }
 
     @PutMapping("/update/{transaction_id}")
-    public GenericResponse updateTransaction(@PathVariable("transaction_id") Long transaction_id, @RequestBody Transaction body){
+    public GenericResponse updateTransaction(@PathVariable("transaction_id") Long transaction_id, @RequestBody Transaccion body){
         return this.service.updateTransaction(transaction_id, body);
     }
 }
