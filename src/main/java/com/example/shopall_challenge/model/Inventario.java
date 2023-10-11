@@ -11,12 +11,12 @@ import javax.persistence.*;
 @Data
 @Getter
 @Setter
-public class Inventory {
+public class Inventario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long inventario_id;
     private float precio_venta;
-    private int cantidad_solicitada;
+    private int cantidad_stock;
 
     @ManyToOne
     @JoinColumn(name = "vendedor_id")
