@@ -1,12 +1,9 @@
 package com.example.shopall_challenge.controller;
-
 import com.example.shopall_challenge.domain.GenericResponse;
 import com.example.shopall_challenge.model.ShoppingCart;
 import com.example.shopall_challenge.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/shoppingcart")
@@ -30,7 +27,7 @@ public class ShoppingCartController {
 
 
     @PostMapping("/add")
-    public GenericResponse addShoppingCart(@RequestBody ShoppingCart body){
+    public GenericResponse  addShoppingCart(@RequestBody ShoppingCart body){
         return this.service.addShoppingCart(body);
     }
 
