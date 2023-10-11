@@ -27,8 +27,7 @@ public class ShoppingCartController {
 
 
     @PostMapping("/add")
-    public GenericResponse  addShoppingCart(@RequestBody ShoppingCart body){
-    public GenericResponse addShoppingCart(@RequestBody Carrito body){
+    public GenericResponse  addShoppingCart(@RequestBody Carrito body){
         return this.service.addShoppingCart(body);
     }
 

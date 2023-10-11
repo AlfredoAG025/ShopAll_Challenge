@@ -1,9 +1,8 @@
 package com.example.shopall_challenge.service;
 
 import com.example.shopall_challenge.domain.GenericResponse;
-import com.example.shopall_challenge.model.Inventory;
+import com.example.shopall_challenge.model.Carrito;
 import com.example.shopall_challenge.model.Producto;
-import com.example.shopall_challenge.model.ShoppingCart;
 import com.example.shopall_challenge.repository.ProductRepository;
 import com.example.shopall_challenge.repository.ShoppingCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,8 +65,8 @@ public class ShoppingCartService {
 
         return response;
     }
-    public GenericResponse addShoppingCart(@RequestBody ShoppingCart body){
-        List<ShoppingCart> shoppingCarts = new ArrayList<>();
+    public GenericResponse addShoppingCart(@RequestBody Carrito body){
+        List<Carrito> shoppingCarts = new ArrayList<>();
         //Monto total
         Long idProducto= body.getProducto().getProducto_id();
         int cantidad= body.getCantidad();
