@@ -17,12 +17,10 @@ import java.util.Optional;
 @Service
 public class ShoppingCartService {
     private ShoppingCartRepository repository;
-    private final ProductRepository repositoryProducto;
 
     @Autowired
-    public ShoppingCartService(ShoppingCartRepository repository,ProductRepository repositoryProducto){
+    public ShoppingCartService(ShoppingCartRepository repository){
         this.repository = repository;
-        this.repositoryProducto= repositoryProducto;
     }
 
     public GenericResponse getShoppingCart(){
@@ -67,10 +65,6 @@ public class ShoppingCartService {
     }
     public GenericResponse addShoppingCart(@RequestBody Carrito body){
         List<Carrito> shoppingCarts = new ArrayList<>();
-        //Monto total
-        Long idProducto= body.getProducto().getProducto_id();
-        int cantidad= body.getCantidad();
-        body.setMonto_total(monto(idProducto,cantidad));
         shoppingCarts.add(body);
         GenericResponse response;
         try{
@@ -80,12 +74,6 @@ public class ShoppingCartService {
             response =  new GenericResponse(409, "Conflict", shoppingCarts);
         }
         return response;
-    }
-
-    public float monto(@RequestBody Long id,Integer cantidad){
-        Producto producto = repositoryProducto.findById(id).get();
-        float monto_total = (float) (cantidad * producto.getPrecio());
-        return monto_total;
     }
 
     public GenericResponse deleteShoppingCart(@PathVariable Long carrito_id){
