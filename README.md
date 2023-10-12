@@ -37,7 +37,6 @@
 7. Transaccion:
   - transaccion_id (Long, clave primaria)
   - fecha (Date)
-  - monto_total (Float)
   - direccion_envio (String)
   - informacion_pago (String)
 
@@ -69,6 +68,21 @@ A continuación se detallan las rutas y métodos disponibles para cada tabla:
 - **POST /product/add**: Crear un nuevo producto (Recibe un RequestBody).
 - **PUT /product/update/:id**: Actualizar un producto (Recibe un RequestBody).
 - **DELETE /product/delete/:id**: Eliminar un producto.
-
-
-
+### Carritos
+- **GET /shoppingcart**: Obtener todos los carritos.
+- **GET /shoppingcart/:id**: Obtener un carrito por el *carrito_id*.
+- **POST /shoppingcart/add**: Crear un nuevo carrito (Recibe un RequestBody).
+- **PUT /shoppingcart/update/:id**: Actualizar un carrito (Recibe un RequestBody).
+- **DELETE /shoppingcart/delete/:id**: Eliminar un carrito.
+### Inventarios
+- **GET /inventory**: Obtener todos los inventarios.
+- **GET /inventory/:id**: Obtener un inventario por el *inventario_id*.
+- **POST /inventory/add**: Crear un nuevo inventario (Recibe un RequestBody).
+- **PUT /inventory/update/:id**: Actualizar un inventario (Recibe un RequestBody).
+- **DELETE /inventory/delete/:id**: Eliminar un inventario.
+### Transacciones
+- **GET /transaction**: Obtener todos las transacciones.
+- **GET /transaction/:id**: Obtener un inventario por el *transaccion_id*.
+- **POST /transaction/add**: Crear un nuevo transaccion (Recibe un RequestBody).
+- **PUT /transaction/update/:id**: Actualizar un transaccion (Recibe un RequestBody).
+- **DELETE /transaction/delete/:id**: Eliminar un transaccion.
