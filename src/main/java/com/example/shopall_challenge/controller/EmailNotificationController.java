@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/emailnotification")
 public class EmailNotificationController {
-    private EmailNotification service;
+    private EmailNotificationService service;
 
     @Autowired
     public EmailNotificationController(EmailNotificationService service){

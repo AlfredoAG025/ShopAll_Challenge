@@ -2,9 +2,9 @@ package com.example.shopall_challenge.service;
 
 import com.example.shopall_challenge.domain.GenericResponse;
 import com.example.shopall_challenge.model.EmailNotificacion;
-import com.example.shopall_challenge.repository.Repository;
 import com.example.shopall_challenge.repository.EmailNotificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class EmailNotificationService {
     private EmailNotificationRepository repository;
 
@@ -21,13 +22,13 @@ public class EmailNotificationService {
         this.repository = repository;
     }
 
-    public GenericResponse getEmailNotification(){
+    public GenericResponse getNotifications(){
         List<EmailNotificacion> emailNotifications = this.repository.findAll();
         GenericResponse response =  new GenericResponse(200, "Correct", emailNotifications);
         return response;
     }
 
-    public GenericResponse getEmailNotificationById(@PathVariable Long notificacion_id){
+    public GenericResponse getNotificationById(@PathVariable Long notificacion_id){
         List<EmailNotificacion> emailNotificacions = new ArrayList<>();
         EmailNotificacion emailNotificacion;
         Optional<EmailNotificacion> emailNotificacion_opt = repository.findById(notificacion_id);
@@ -43,7 +44,7 @@ public class EmailNotificationService {
         return response;
     }
 
-    public GenericResponse updateEmailNotification(@PathVariable Long category_id, @RequestBody EmailNotificacion body){
+    public GenericResponse updateNotification(@PathVariable Long category_id, @RequestBody EmailNotificacion body){
         List<EmailNotificacion> emailNotificacions = new ArrayList<>();
         EmailNotificacion emailNotificacion;
         Optional<EmailNotificacion> emailNotificacion_opt = repository.findById(category_id);
@@ -61,7 +62,7 @@ public class EmailNotificationService {
         return response;
     }
 
-    public GenericResponse addEmailNotification(@RequestBody EmailNotificacion body){
+    public GenericResponse addNotification(@RequestBody EmailNotificacion body){
         List<EmailNotificacion> emailNotificacions = new ArrayList<>();
         emailNotificacions.add(body);
         GenericResponse response;
@@ -74,7 +75,7 @@ public class EmailNotificationService {
         return response;
     }
 
-    public GenericResponse deleteEmailNotification(@PathVariable Long notificacion_id){
+    public GenericResponse deleteNotification(@PathVariable Long notificacion_id){
         List<EmailNotificacion> emailNotificacion = new ArrayList<>();
         EmailNotificacion emailNotificacions;
         Optional<EmailNotificacion> emailNotification_opt = repository.findById(notificacion_id);
@@ -82,7 +83,7 @@ public class EmailNotificationService {
 
         if (emailNotification_opt.isPresent()){
             emailNotificacions = emailNotification_opt.get();
-            emailNotificacions.add(emailNotificacions);
+            emailNotificacion.add(emailNotificacions);
             repository.deleteById(notificacion_id);
             response =  new GenericResponse(201, "Category with id: " + notificacion_id + " deleted", emailNotificacion);
         } else {
@@ -91,6 +92,7 @@ public class EmailNotificationService {
 
         return response;
     }
+
 
 
 
