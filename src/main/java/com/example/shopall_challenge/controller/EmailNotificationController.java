@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
-@RequestMapping("api/v1/emailnotification")
+@RequestMapping("api/v1/emailNotification")
 public class EmailNotificationController {
     private EmailNotificationService service;
 
@@ -18,7 +18,7 @@ public class EmailNotificationController {
     }
 
     @GetMapping
-    public GenericResponse getCategories(){
+    public GenericResponse getNotifications(){
         return this.service.getNotifications();
     }
 

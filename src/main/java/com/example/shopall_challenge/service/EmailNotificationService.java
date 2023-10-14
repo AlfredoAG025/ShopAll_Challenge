@@ -44,10 +44,10 @@ public class EmailNotificationService {
         return response;
     }
 
-    public GenericResponse updateNotification(@PathVariable Long category_id, @RequestBody EmailNotificacion body){
+    public GenericResponse updateNotification(@PathVariable Long notification_id, @RequestBody EmailNotificacion body){
         List<EmailNotificacion> emailNotificacions = new ArrayList<>();
         EmailNotificacion emailNotificacion;
-        Optional<EmailNotificacion> emailNotificacion_opt = repository.findById(category_id);
+        Optional<EmailNotificacion> emailNotificacion_opt = repository.findById(notification_id);
         GenericResponse response = null;
 
         if (emailNotificacion_opt.isPresent()){
@@ -85,9 +85,9 @@ public class EmailNotificationService {
             emailNotificacions = emailNotification_opt.get();
             emailNotificacion.add(emailNotificacions);
             repository.deleteById(notificacion_id);
-            response =  new GenericResponse(201, "Category with id: " + notificacion_id + " deleted", emailNotificacion);
+            response =  new GenericResponse(201, "Notification with id: " + notificacion_id + " deleted", emailNotificacion);
         } else {
-            response =  new GenericResponse(409, "Category not found", emailNotificacion);
+            response =  new GenericResponse(409, "Notification not found", emailNotificacion);
         }
 
         return response;
