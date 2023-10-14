@@ -28,7 +28,11 @@ public class Carrito {
     public Double getMonto_total() {
         this.monto_total= 0.0;
 
-        this.monto_total = this.cantidad * this.producto.getPrecio();
+        try{
+            this.monto_total = this.cantidad * this.producto.getPrecio();
+        } catch (Exception e){
+            this.monto_total = 0.0;
+        }
 
         return this.monto_total;
     }
