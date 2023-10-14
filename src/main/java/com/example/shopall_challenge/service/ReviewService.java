@@ -86,9 +86,9 @@ public class ReviewService {
             review = review_opt.get();
             sellers.add(review);
             repository.deleteById(comentario_id);
-            response =  new GenericResponse(201, "Seller with id: " + comentario_id + " deleted", sellers);
+            response =  new GenericResponse(201, "Review with id: " + comentario_id + " deleted", sellers);
         } else {
-            response =  new GenericResponse(409, "Seller not found", sellers);
+            response =  new GenericResponse(409, "Review not found", sellers);
         }
 
         return response;
