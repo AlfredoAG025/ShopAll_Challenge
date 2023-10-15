@@ -39,6 +39,24 @@
   - fecha (Date)
   - direccion_envio (String)
   - informacion_pago (String)
+8. EmailNotificacion
+  - notificacion_id (Long, clave primaria)
+  - tipo_notificacion (String)
+  - mensaje (Text)
+  - fecha_envio (Date)
+  - usuario_id (Long, clave foránea que hace referencia a Usuario)
+ 9. Reseña 
+  - comentario_id(Long, clave primaria)
+  - comentario(Text)
+  - puntuacion(Integer)
+  - fecha(Date)   
+  - usuario_id (Long, clave foránea que hace referencia a Usuario)
+  - producto_id(Long, clave foránea que hace referencia a Producto)
+10. Tienda
+  - tienda_id(Long,clave primari)
+  - nombre_tienda(String)
+  - descripcion(Text)
+  - vendedor_id(Long, clave foránea que hace referencia a Vendedor) 
 
 ## Uso de la API
 **Ruta Principal**: http://localhost:8080/shopall/api/v1
@@ -86,3 +104,21 @@ A continuación se detallan las rutas y métodos disponibles para cada tabla:
 - **POST /transaction/add**: Crear un nuevo transaccion (Recibe un RequestBody).
 - **PUT /transaction/update/:id**: Actualizar un transaccion (Recibe un RequestBody).
 - **DELETE /transaction/delete/:id**: Eliminar un transaccion.
+### EmailNotificacion
+- **GET /emailNotification**: Obtener todos las notificaciones.
+- **GET /emailNotification/:id**: Obtener un inventario por el *notificacion_id*.
+- **POST /emailNotification/add**: Crear una nueva notificación (Recibe un RequestBody).
+- **PUT /emailNotification/update/:id**: Actualizar una notificación (Recibe un RequestBody).
+- **DELETE /emailNotification/delete/:id**: Eliminar una notificación.
+### Reseña
+- **GET /review**: Obtener todos las reviews.
+- **GET /review/:id**: Obtener un inventario por el *comentario_id*.
+- **POST /review/add**: Crear una nueva review (Recibe un RequestBody).
+- **PUT /review/update/:id**: Actualizar una review (Recibe un RequestBody).
+- **DELETE /review/delete/:id**: Eliminar una review.
+### Tienda
+- **GET /shop**: Obtener todos las tiendas.
+- **GET /shop/:id**: Obtener un inventario por el *tienda_id*.
+- **POST /shop/add**: Crear una nueva tienda (Recibe un RequestBody).
+- **PUT /shop/update/:id**: Actualizar una tienda (Recibe un RequestBody).
+- **DELETE /shop/delete/:id**: Eliminar una tienda.
