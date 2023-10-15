@@ -39,6 +39,24 @@
   - fecha (Date)
   - direccion_envio (String)
   - informacion_pago (String)
+8. EmailNotificacion
+  - notificacion_id (Long, clave primaria)
+  - tipo_notificacion (String)
+  - mensaje (Text)
+  - fecha_envio (Date)
+  - usuario_id (Long, clave foránea que hace referencia a Usuario)
+ 9. Reseña 
+  - comentario_id(Long, clave primaria)
+  - comentario(Text)
+  - puntuacion(Integer)
+  - fecha(Date)   
+  - usuario_id (Long, clave foránea que hace referencia a Usuario)
+  - producto_id(Long, clave foránea que hace referencia a Producto)
+10. Tienda
+  - tienda_id(Long,clave primari)
+  - nombre_tienda(String)
+  - descripcion(Text)
+  - vendedor_id(Long, clave foránea que hace referencia a Vendedor) 
 
 ## Uso de la API
 **Ruta Principal**: http://localhost:8080/shopall/api/v1
