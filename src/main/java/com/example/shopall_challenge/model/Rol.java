@@ -17,9 +17,6 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rol_id;
     private String rol;
-    @ManyToOne
-    @JoinColumn(name = "privilegio_id")
-    private Privilegio privilegio;
     @ManyToMany
     @JoinTable(
             joinColumns = @JoinColumn(name = "rol_id"),
