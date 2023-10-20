@@ -21,5 +21,7 @@ public class Usuario {
     private String email;
     private String contrasena;
     private String tipo;
-
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rol;
 }

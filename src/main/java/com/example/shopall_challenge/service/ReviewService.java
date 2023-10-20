@@ -2,7 +2,6 @@ package com.example.shopall_challenge.service;
 
 import com.example.shopall_challenge.domain.GenericResponse;
 import com.example.shopall_challenge.model.Resena;
-import com.example.shopall_challenge.model.Vendedor;
 import com.example.shopall_challenge.repository.ReviewRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
