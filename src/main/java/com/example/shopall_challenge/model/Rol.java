@@ -19,8 +19,10 @@ public class Rol {
     private String rol;
     @ManyToMany
     @JoinTable(
+            name = "rol_privilegio",
             joinColumns = @JoinColumn(name = "rol_id"),
-            inverseJoinColumns = @JoinColumn(name = "privilegio_id"))
+            inverseJoinColumns = @JoinColumn(name = "privilegio_id")
+    )
     Set<Privilegio> privilegios;
 }
 
