@@ -34,7 +34,6 @@ public class UserController {
 
     @PostMapping("/add")
     public GenericResponse addUser(@RequestBody Usuario body){
-        body.setContrasena(MD5.getMd5(body.getContrasena()));
         return this.service.addUser(body);
     }
 
