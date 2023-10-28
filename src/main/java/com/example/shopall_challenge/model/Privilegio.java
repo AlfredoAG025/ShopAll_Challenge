@@ -17,6 +17,4 @@ public class Privilegio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long privilegio_id;
     private String privilegio;
-    @ManyToMany(mappedBy = "privilegios")
-    Set<Rol> rols;
 }
