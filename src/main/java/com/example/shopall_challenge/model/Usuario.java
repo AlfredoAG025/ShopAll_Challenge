@@ -1,5 +1,4 @@
 package com.example.shopall_challenge.model;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
@@ -21,5 +20,8 @@ public class Usuario {
     private String email;
     private String contrasena;
     private String tipo;
-
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rol;
 }
+
