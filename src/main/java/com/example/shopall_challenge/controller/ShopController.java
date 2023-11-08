@@ -4,11 +4,13 @@ import com.example.shopall_challenge.domain.GenericResponse;
 import com.example.shopall_challenge.model.Tienda;
 import com.example.shopall_challenge.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
 @RequestMapping("api/v1/shop")
+@PreAuthorize("hasRole('ADMIN')")
 public class ShopController {
     private ShopService service;
 

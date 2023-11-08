@@ -4,10 +4,12 @@ import com.example.shopall_challenge.domain.GenericResponse;
 import com.example.shopall_challenge.model.Inventario;
 import com.example.shopall_challenge.service.InventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/inventory")
+@PreAuthorize("hasRole('ADMIN')")
 public class InventoryController {
     private InventoryService service;
 

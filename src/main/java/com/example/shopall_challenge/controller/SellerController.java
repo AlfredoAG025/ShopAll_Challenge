@@ -5,10 +5,12 @@ import com.example.shopall_challenge.model.Usuario;
 import com.example.shopall_challenge.model.Vendedor;
 import com.example.shopall_challenge.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/seller")
+@PreAuthorize("hasRole('ADMIN')")
 public class SellerController {
     private final SellerService service;
 

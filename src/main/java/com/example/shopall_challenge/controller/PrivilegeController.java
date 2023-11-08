@@ -4,10 +4,12 @@ import com.example.shopall_challenge.domain.GenericResponse;
 import com.example.shopall_challenge.model.Privilegio;
 import com.example.shopall_challenge.service.PrivilegeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/privilege")
+@PreAuthorize("hasRole('ADMIN')")
 public class PrivilegeController {
 
     private final PrivilegeService service;

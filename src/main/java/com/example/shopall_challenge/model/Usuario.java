@@ -1,10 +1,13 @@
 package com.example.shopall_challenge.model;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 @Table
@@ -20,8 +23,11 @@ public class Usuario {
     private String email;
     private String contrasena;
     private String tipo;
-    @ManyToOne
-    @JoinColumn(name = "rol_id")
-    private Rol rol;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "usuario_roles",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "rol_id"))
+    private Set<Rol> roles;
 }
 

@@ -4,11 +4,13 @@ import com.example.shopall_challenge.domain.GenericResponse;
 import com.example.shopall_challenge.model.EmailNotificacion;
 import com.example.shopall_challenge.service.EmailNotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
 @RequestMapping("api/v1/emailNotification")
+@PreAuthorize("hasRole('ADMIN')")
 public class EmailNotificationController {
     private EmailNotificationService service;
 

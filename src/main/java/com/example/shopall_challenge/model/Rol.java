@@ -3,8 +3,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.time.LocalDate;
+import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -23,6 +22,6 @@ public class Rol {
             joinColumns = @JoinColumn(name = "rol_id"),
             inverseJoinColumns = @JoinColumn(name = "privilegio_id")
     )
-    Set<Privilegio> privilegios;
+    private Set<Privilegio> privilegios;
 }
 
