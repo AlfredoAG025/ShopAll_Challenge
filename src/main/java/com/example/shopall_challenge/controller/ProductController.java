@@ -27,7 +27,7 @@ public class ProductController {
     }
 
     @GetMapping("{product_id}")
-    @PreAuthorize("hasAnyAuthority('USER', 'ADMIN')")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public GenericResponse getProductById(@PathVariable("product_id") Long product_id) {
         return this.service.getProduct(product_id);
     }
