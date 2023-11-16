@@ -61,6 +61,18 @@
 ## Uso de la API
 **Ruta Principal**: http://localhost:8080/shopall/api/v1
 
+Para acceder a todas las tablas de la API es necesario generar un TOKEN de acceso:
+**http://localhost:8080/shopall/login**
+El el body ingresar correo y contrasena:
+
+    {
+    "email": "user@mail.com",
+    "password": "password"
+    }
+
+Recibiras un Bearer Token en el Header: "Authorization" con el valor:
+Bearer *Token*
+
 A continuación se detallan las rutas y métodos disponibles para cada tabla:
 ### Usuarios
 - **GET /user**: Obtener todos los usuarios.

@@ -1,6 +1,5 @@
 package com.example.shopall_challenge.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,12 +11,9 @@ import jakarta.persistence.*;
 @Data
 @Getter
 @Setter
-public class Vendedor {
+public class Privilegio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long vendedor_id;
-
-    @OneToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    private Long privilegio_id;
+    private String privilegio;
 }

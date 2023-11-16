@@ -6,6 +6,7 @@ import com.example.shopall_challenge.model.Usuario;
 import com.example.shopall_challenge.repository.UserRepository;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,9 @@ import java.util.Optional;
 @Service
 public class UserService {
     private final UserRepository repository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     public UserService(UserRepository repository){
@@ -55,6 +59,7 @@ public class UserService {
 
         if (user_opt.isPresent()){
             user = body;
+            user.setContrasena(passwordEncoder.encode(user.getContrasena()));
             users.add(user);
             repository.save(user);
             response =  new GenericResponse(201, "User Updated!", users);
@@ -67,6 +72,7 @@ public class UserService {
 
     public GenericResponse addUser(@RequestBody Usuario body){
         List<Usuario> users = new ArrayList<>();
+        body.setContrasena(passwordEncoder.encode(body.getContrasena()));
         users.add(body);
         GenericResponse response;
         try{

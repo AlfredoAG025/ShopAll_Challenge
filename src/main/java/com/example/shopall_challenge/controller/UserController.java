@@ -6,10 +6,12 @@ import com.example.shopall_challenge.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/user")
+@PreAuthorize("hasRole('ADMIN')")
 public class UserController {
 
     private final UserService service;
@@ -34,7 +36,6 @@ public class UserController {
 
     @PostMapping("/add")
     public GenericResponse addUser(@RequestBody Usuario body){
-        body.setContrasena(MD5.getMd5(body.getContrasena()));
         return this.service.addUser(body);
     }
 

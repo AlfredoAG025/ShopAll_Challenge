@@ -6,10 +6,12 @@ import com.example.shopall_challenge.model.Usuario;
 import com.example.shopall_challenge.model.Vendedor;
 import com.example.shopall_challenge.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/review")
+@PreAuthorize("hasAnyRole('USER','ADMIN')")
 public class ReviewController {
 
     private final ReviewService service;
