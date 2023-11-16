@@ -8,7 +8,6 @@ import jakarta.persistence.*;
 
 @Data
 @Entity
-
 @Getter
 @Setter
 public class Producto {
