@@ -22,14 +22,12 @@ public class CategoryController {
 
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public GenericResponse getCategories() {
         return this.service.getCategories();
     }
 
 
     @GetMapping("{category_id}")
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public GenericResponse getCategoryById(@PathVariable("category_id") Long category_id) {
         return this.service.getCategoryById(category_id);
     }
